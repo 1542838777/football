@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/football_guessing?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 3000
+      pool-name: HikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+forest:
+  bean-id: forestConfiguration # 在spring上下文中bean的id, 默认值为forestConfiguration
+  backend: okhttp3 # 后端HTTP API： okhttp3
+  max-connections: 1000 # 连接池最大连接数，默认值为500
+  max-route-connections: 500 # 每个路由的最大连接数，默认值为500
+  timeout: 3000 # 请求超时时间，单位为毫秒, 默认值为3000
+  connect-timeout: 3000 # 连接超时时间，单位为毫秒, 默认值为2000
+  retry-count: 1 # 请求失败后重试次数，默认为0次不重试
+  ssl-protocol: SSLv3 # 单向验证的HTTPS的默认SSL协议，默认为SSLv3
+  logEnabled: true # 打开或关闭日志，默认为true
+  log-request: true # 打开/关闭Forest请求日志（默认为 true）
+  log-response-status: true # 打开/关闭Forest响应状态日志（默认为 true）
+  log-response-content: true # 打开/关闭Forest响应内容日志（默认为 false）
