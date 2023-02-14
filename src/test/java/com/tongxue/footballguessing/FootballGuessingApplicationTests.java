@@ -13,7 +13,7 @@ class FootballGuessingApplicationTests {
 	@Resource
 	private HttpClient httpClient;
 	@Autowired
-	@Qualifier(value = "spSFPDataQueryHandlerImpl")
+	@Qualifier(value = "spGeneralDataQueryHandlerImpl")
 	private GetDataHandler getDataHandler;
 
 	@Test
@@ -22,7 +22,7 @@ class FootballGuessingApplicationTests {
 		System.out.println(111111);
 		String s = XmlJsonUtils.xmlToJSON(result,"");
 		System.out.println(s);*/
-		System.out.println(httpClient.bf());
+		System.out.println(httpClient.sp_odds());
 		//System.out.println(getDataHandler.getData());
 	}
 

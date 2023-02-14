@@ -5,10 +5,12 @@ import com.tongxue.footballguessing.HttpClient;
 import com.tongxue.footballguessing.data.dto.jsondto.fiveHundred.MatchDTO;
 import com.tongxue.footballguessing.service.getFromWeb.GetDataHandler;
 import com.tongxue.footballguessing.utils.XmlUtils;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Component("spGeneralDataQueryHandlerImpl")
 public class SpGeneralDataQueryHandlerImpl implements GetDataHandler {
 	@Resource
 	private HttpClient httpClient;

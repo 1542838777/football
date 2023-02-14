@@ -14,7 +14,7 @@ import java.util.List;
  * 胜负平 赔率 更新 数据
  * 比赛team 两队
  */
-@Component("spSFPDataQueryHandlerImpl")
+@Component("spSFPChangeDataQueryHandlerImpl")
 public class SpSFPChangeDataQueryHandlerImpl implements GetDataHandler {
 	@Resource
 	private HttpClient httpClient;

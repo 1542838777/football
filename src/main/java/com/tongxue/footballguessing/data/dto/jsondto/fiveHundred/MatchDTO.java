@@ -28,7 +28,7 @@ public class MatchDTO implements Serializable {
 	@JSONField(name = "dayofweek")
 	String dayofweek;
 	@JSONField(name = "id")
-	String fiveHundredId;
+	String fiveHundredMatchId;
 	@JSONField(name = "row")
-	List<SpHadSPFDTO> row;
+	List<SpHadSPFDTO> hadSPFDTOS;
 }

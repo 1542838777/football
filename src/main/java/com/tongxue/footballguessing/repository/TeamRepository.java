@@ -14,16 +14,16 @@ import java.util.List;
 
 @Repository
 @Configuration
-public class TeamRepository  extends ServiceImpl<TeamMapper,TeamDO> {
-	@Value("${ifNotHaveThenInsert}")
-	private String ifNotHaveThenInsert;
+public class TeamRepository extends  ServiceImpl<TeamMapper,TeamDO> {
+	@Value("${ifNotHaveThenInsertWhenQuery}")
+	private String ifNotHaveThenInsertWhenQuery;
 
 	@Resource
 	private TeamMapper teamMapper;
 	public TeamDO queryByCnName(String teamCnName) {
 		List<TeamDO> list = this.list(new QueryWrapper<TeamDO>().eq(TeamDO.FILED_CN_NAME, teamCnName));
 		if (CollectionUtils.isEmpty(list)) {
-			if (Boolean.valueOf(ifNotHaveThenInsert)) {
+			if (Boolean.valueOf(ifNotHaveThenInsertWhenQuery)) {
 				//写入一个那就
 				baseMapper.insert(TeamDO.builder().cnName(teamCnName).build());
 				return queryByCnName(teamCnName);
@@ -35,9 +35,9 @@ public class TeamRepository  extends ServiceImpl<TeamMapper,TeamDO> {
 	}
 
 	public TeamDO queryByEnName(String teamEnName) {
-		List<TeamDO> list = this.list(new QueryWrapper<TeamDO>().eq(TeamDO.FILED_EN_NAME, teamEnName));
+		List<TeamDO> list = this.list(new QueryWrapper<TeamDO>().eq(TeamDO.FILED_CN_NAME, teamEnName));
 		if (CollectionUtils.isEmpty(list)) {
-			if (Boolean.valueOf(ifNotHaveThenInsert)) {
+			if (Boolean.valueOf(ifNotHaveThenInsertWhenQuery)) {
 				//写入一个那就
 				baseMapper.insert(TeamDO.builder().enName(teamEnName).build());
 				return queryByCnName(teamEnName);

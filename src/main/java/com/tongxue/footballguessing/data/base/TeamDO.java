@@ -34,6 +34,8 @@ public class TeamDO implements Serializable {
 	 */
 	private String enName;
 
+	//private Long
+
 	public TeamDO() {
 	}
 }
